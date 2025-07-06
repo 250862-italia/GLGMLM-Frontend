@@ -15,7 +15,7 @@ export const AuthProvider = ({ children }) => {
   const [loading, setLoading] = useState(true)
   const [token, setToken] = useState(localStorage.getItem('token'))
 
-  const API_URL = import.meta.env.VITE_API_URL || 'https://glgmlm.onrender.com/api'
+  const API_URL = import.meta.env.VITE_API_URL || 'https://glgmlm-backend-minimal.onrender.com/api'
 
   // Check if user is authenticated on app load
   useEffect(() => {
