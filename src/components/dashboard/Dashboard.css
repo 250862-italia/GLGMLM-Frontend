@@ -1,0 +1,374 @@
+.dashboard {
+  padding: var(--spacing-8);
+  max-width: 1200px;
+  margin: 0 auto;
+  background: var(--gray-50);
+  min-height: 100vh;
+}
+
+.dashboard-header {
+  margin-bottom: var(--spacing-8);
+  text-align: center;
+}
+
+.dashboard-header h1 {
+  color: var(--gray-900);
+  font-size: var(--font-size-5xl);
+  font-weight: 700;
+  margin-bottom: var(--spacing-3);
+  background: linear-gradient(135deg, var(--primary-600), var(--secondary-600));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.dashboard-header p {
+  color: var(--gray-600);
+  font-size: var(--font-size-lg);
+  margin: 0;
+  font-weight: 400;
+}
+
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--spacing-8);
+}
+
+.dashboard-card {
+  background: white;
+  border-radius: var(--radius-2xl);
+  box-shadow: var(--shadow-lg);
+  overflow: hidden;
+  transition: all var(--transition-normal);
+  border: 1px solid var(--gray-100);
+}
+
+.dashboard-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-xl);
+  border-color: var(--primary-200);
+}
+
+.card-header {
+  background: linear-gradient(135deg, var(--primary-500) 0%, var(--secondary-500) 100%);
+  color: white;
+  padding: var(--spacing-5);
+  position: relative;
+  overflow: hidden;
+}
+
+.card-header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="header-pattern" width="20" height="20" patternUnits="userSpaceOnUse"><circle cx="10" cy="10" r="1" fill="white" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23header-pattern)"/></svg>');
+  pointer-events: none;
+}
+
+.card-header h3 {
+  margin: 0;
+  font-size: var(--font-size-xl);
+  font-weight: 600;
+  position: relative;
+  z-index: 1;
+}
+
+.card-content {
+  padding: var(--spacing-6);
+}
+
+/* User Info Card */
+.user-info-card .card-content {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.user-avatar {
+  flex-shrink: 0;
+}
+
+.avatar-placeholder {
+  width: 80px;
+  height: 80px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.user-details h4 {
+  margin: 0 0 8px 0;
+  color: #2d3748;
+  font-size: 1.3rem;
+  font-weight: 600;
+}
+
+.user-email {
+  color: #718096;
+  margin: 0 0 8px 0;
+  font-size: 0.9rem;
+}
+
+.user-role {
+  color: #667eea;
+  font-weight: 600;
+  margin: 0 0 8px 0;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  letter-spacing: 0.5px;
+}
+
+.user-code {
+  color: #4a5568;
+  font-family: 'Courier New', monospace;
+  font-size: 0.9rem;
+  margin: 0;
+  padding: 4px 8px;
+  background: #f7fafc;
+  border-radius: 4px;
+  display: inline-block;
+}
+
+/* Stats Grid */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--spacing-5);
+}
+
+@media (max-width: 768px) {
+  .stats-grid {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-4);
+  }
+}
+
+/* Activity Card */
+.activity-list {
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.activity-item {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 15px 0;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.activity-item:last-child {
+  border-bottom: none;
+}
+
+.activity-icon {
+  flex-shrink: 0;
+}
+
+.member-avatar {
+  width: 40px;
+  height: 40px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.activity-content {
+  flex: 1;
+}
+
+.activity-title {
+  font-weight: 600;
+  color: #2d3748;
+  margin-bottom: 4px;
+}
+
+.activity-subtitle {
+  color: #718096;
+  font-size: 0.85rem;
+}
+
+.activity-date {
+  color: #a0aec0;
+  font-size: 0.8rem;
+  flex-shrink: 0;
+}
+
+.empty-state {
+  text-align: center;
+  padding: 40px 20px;
+  color: #718096;
+}
+
+.empty-state p {
+  margin: 0;
+  font-size: 1rem;
+}
+
+/* Earnings Card */
+.earnings-summary {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.earnings-item {
+  text-align: center;
+  padding: 20px;
+  background: #f7fafc;
+  border-radius: 10px;
+}
+
+.earnings-label {
+  color: #718096;
+  font-size: 0.9rem;
+  margin-bottom: 8px;
+}
+
+.earnings-value {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #667eea;
+}
+
+/* Client Card */
+.client-summary {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.client-item {
+  text-align: center;
+  padding: 20px;
+  background: #f7fafc;
+  border-radius: 10px;
+}
+
+.client-label {
+  color: #718096;
+  font-size: 0.9rem;
+  margin-bottom: 8px;
+}
+
+.client-value {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #667eea;
+}
+
+/* Loading and Error States */
+.dashboard-loading,
+.dashboard-error {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 400px;
+}
+
+.dashboard-loading .loading-spinner {
+  text-align: center;
+}
+
+.dashboard-loading .spinner {
+  width: 50px;
+  height: 50px;
+  border: 4px solid #e2e8f0;
+  border-top: 4px solid #667eea;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin: 0 auto 20px;
+}
+
+.dashboard-loading p {
+  color: #718096;
+  font-size: 1.1rem;
+  margin: 0;
+}
+
+.dashboard-error .error-message {
+  text-align: center;
+  color: #e53e3e;
+}
+
+.dashboard-error h3 {
+  margin: 0 0 10px 0;
+  font-size: 1.5rem;
+}
+
+.dashboard-error p {
+  margin: 0;
+  font-size: 1rem;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .dashboard {
+    padding: 20px;
+  }
+
+  .dashboard-header h1 {
+    font-size: 2rem;
+  }
+
+  .dashboard-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .earnings-summary,
+  .client-summary {
+    grid-template-columns: 1fr;
+  }
+
+  .user-info-card .card-content {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .dashboard {
+    padding: 15px;
+  }
+
+  .dashboard-header h1 {
+    font-size: 1.75rem;
+  }
+
+  .card-content {
+    padding: 20px;
+  }
+
+  .stat-value {
+    font-size: 1.5rem;
+  }
+
+  .earnings-value,
+  .client-value {
+    font-size: 1.25rem;
+  }
+} 
